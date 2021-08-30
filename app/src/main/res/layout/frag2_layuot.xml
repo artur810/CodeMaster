@@ -1,36 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:gravity="center"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Status"
-        android:textSize="30sp"
-    />
+        android:orientation="horizontal"
+        android:layout_margin="10sp">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:backgroundTint="@android:color/holo_red_dark"
-    />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check0"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp" />
 
-    <Button
-        android:id="@+id/check"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:backgroundTint="@android:color/white"
-    />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check1"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp" />
 
-    <Button
-        android:id="@+id/test"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@android:color/white"
-        />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check2"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check3"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/test"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:text="confirm" />
+
+    </LinearLayout>
     
 </LinearLayout>

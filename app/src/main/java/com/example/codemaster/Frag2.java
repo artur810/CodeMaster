@@ -1,69 +1,99 @@
 package com.example.codemaster;
 
-import static com.example.codemaster.DialogChekColor.check;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.button.MaterialButton;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Frag2 extends Fragment {
 
     Random rand = new Random();
-    public static Button buttonColor, buttonCheck, buttonTest;
+    public static MaterialButton buttonCheck0, buttonCheck1, buttonCheck2, buttonCheck3, buttonTest;
     public static int[] colors = new int[4];
-    int n;
+
+    RecyclerView recyclerview;
+    private List<Card> cards;
+    private RecyclerViewAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.frag2_layuot, container, false);
 
-        buttonColor = view.findViewById(R.id.button);
-        buttonCheck = view.findViewById(R.id.check);
+        cards = new ArrayList<>();
+
+        recyclerview = view.findViewById(R.id.recyclerview);
+
         buttonTest = view.findViewById(R.id.test);
+        buttonCheck0 = view.findViewById(R.id.check0);
+        buttonCheck1 = view.findViewById(R.id.check1);
+        buttonCheck2 = view.findViewById(R.id.check2);
+        buttonCheck3 = view.findViewById(R.id.check3);
 
-        colors[0] = Color.rgb(255,0,0);
-        colors[1] = Color.rgb(0,255,0);
-        colors[2] = Color.rgb(0,0,255);
-        colors[3] = Color.rgb(255,255,0);
+        colors[0] = Color.RED;
+        colors[1] = Color.GREEN;
+        colors[2] = Color.BLUE;
+        colors[3] = Color.YELLOW;
 
-        check = rand.nextInt(4);
-        buttonCheck.setBackgroundColor(colors[check]);
+        buttonCheck0.setOnClickListener(v -> {
 
-        n = rand.nextInt(4);
-        buttonColor.setBackgroundColor(colors[n]);
-
-        buttonColor.setOnClickListener(v -> {
-
-            n = rand.nextInt(4);
-            buttonColor.setBackgroundColor(colors[n]);
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck0);
+            dialogFragment.show(getActivity().getSupportFragmentManager(), "dialog fragment");
 
         });
+        buttonCheck1.setOnClickListener(v -> {
 
-        buttonCheck.setOnClickListener(v -> {
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck1);
+            dialogFragment.show(getActivity().getSupportFragmentManager(), "dialog fragment");
 
-            DialogChekColor dialogFragment = new DialogChekColor();
+        });
+        buttonCheck2.setOnClickListener(v -> {
+
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck2);
+            dialogFragment.show(getActivity().getSupportFragmentManager(), "dialog fragment");
+
+        });
+        buttonCheck3.setOnClickListener(v -> {
+
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck3);
             dialogFragment.show(getActivity().getSupportFragmentManager(), "dialog fragment");
 
         });
 
         buttonTest.setOnClickListener(v -> {
 
-            if(check == n){
-                Toast.makeText(getActivity().getBaseContext(), "nice check", Toast.LENGTH_SHORT).show();
-            }else {
-                Toast.makeText(getActivity().getBaseContext(), "try again", Toast.LENGTH_SHORT).show();
-            }
+            Card card = new Card((int)buttonCheck0.getTag(), (int)buttonCheck1.getTag(), (int)buttonCheck2.getTag(), (int)buttonCheck3.getTag());
+
+            Toast.makeText(view.getContext(), card.getColor1() + "\n" + card.getColor2() + "\n" + card.getColor3() + "\n" +card.getColor4() + "\n", Toast.LENGTH_SHORT).show();
+
+            cards.add(card);
+            recyclerViewAdapter(view);
 
         });
 
         return view;
+    }
+
+    private void recyclerViewAdapter(View view){
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerview.setHasFixedSize(true);
+        recyclerview.setLayoutManager(linearLayoutManager);
+        adapter = new RecyclerViewAdapter(view.getContext(), cards);
+        recyclerview.setAdapter(adapter);
     }
 }
