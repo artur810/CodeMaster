@@ -48,58 +48,74 @@ public class Card {
     public String getStrikes() {
 
         int wright = 0;
-        Boolean boolean1 = false, boolean2 = false, boolean3 = false, boolean4 = false;
+        Boolean booleanComputer1 = false, booleanComputer2 = false, booleanComputer3 = false, booleanComputer4 = false;
+        Boolean booleanCheck1 = false, booleanCheck2 = false, booleanCheck3 = false, booleanCheck4 = false;
 
         if(getColor1() == checkComputers[0]) {
             wright += 10;
-            boolean1 = true;
+            booleanComputer1 = true;
+            booleanCheck1 = true;
         }
         if(getColor2() == checkComputers[1]) {
             wright += 10;
-            boolean2 = true;
+            booleanComputer2 = true;
+            booleanCheck2 = true;
         }
         if(getColor3() == checkComputers[2]) {
             wright += 10;
-            boolean3 = true;
+            booleanComputer3 = true;
+            booleanCheck3 = true;
         }
         if(getColor4() == checkComputers[3]) {
             wright += 10;
-            boolean4 = true;
+            booleanComputer4 = true;
+            booleanCheck4 = true;
         }
-        if(!boolean1){
-            if(getColor2() == checkComputers[0] && !(getColor2() == checkComputers[1])) {
+        if(!booleanComputer1){
+            if(getColor2() == checkComputers[0] && !booleanCheck2) {
                 wright ++;
-            }else if(getColor3() == checkComputers[0] && !(getColor3() == checkComputers[2])) {
+                booleanCheck2 = true;
+            }else if(getColor3() == checkComputers[0] && !booleanCheck3) {
                 wright ++;
-            }else if(getColor4() == checkComputers[0] && !(getColor4() == checkComputers[3])) {
-                wright++;
+                booleanCheck3 = true;
+            }else if(getColor4() == checkComputers[0] && !booleanCheck4) {
+                booleanCheck4 = true;
             }
         }
-        if(!boolean2){
-            if(getColor1() == checkComputers[1] && !(getColor1() == checkComputers[0])) {
+        if(!booleanComputer2){
+            if(getColor1() == checkComputers[1] && !booleanCheck1) {
                 wright ++;
-            }else if(getColor3() == checkComputers[1] && !(getColor3() == checkComputers[2])) {
+                booleanCheck1 = true;
+            }else if(getColor3() == checkComputers[1] && !booleanCheck3) {
                 wright ++;
-            }else if(getColor4() == checkComputers[1] && !(getColor4() == checkComputers[3])) {
+                booleanCheck3 = true;
+            }else if(getColor4() == checkComputers[1] && !booleanCheck4) {
                 wright++;
+                booleanCheck4 = true;
             }
         }
-        if(!boolean3){
-            if(getColor1() == checkComputers[2] && !(getColor1() == checkComputers[0])) {
+        if(!booleanComputer3){
+            if(getColor1() == checkComputers[2] && !booleanCheck1) {
                 wright ++;
-            }else if(getColor2() == checkComputers[2] && !(getColor2() == checkComputers[1])) {
+                booleanCheck1 = true;
+            }else if(getColor2() == checkComputers[2] && !booleanCheck2) {
                 wright ++;
-            }else if(getColor4() == checkComputers[2] && !(getColor4() == checkComputers[3])) {
+                booleanCheck2 = true;
+            }else if(getColor4() == checkComputers[2] && !booleanCheck4) {
                 wright++;
+                booleanCheck4 = true;
             }
         }
-        if(!boolean4){
-            if(getColor1() == checkComputers[3] && !(getColor1() == checkComputers[0])) {
+        if(!booleanComputer4){
+            if(getColor1() == checkComputers[3] && !booleanCheck1) {
                 wright ++;
-            }else if(getColor2() == checkComputers[3] && !(getColor2() == checkComputers[1])) {
+                booleanCheck1 = true;
+            }else if(getColor2() == checkComputers[3] && !booleanCheck2) {
                 wright ++;
-            }else if(getColor3() == checkComputers[3] && !(getColor3() == checkComputers[2])) {
+                booleanCheck2 = true;
+            }else if(getColor3() == checkComputers[3] && !booleanCheck3) {
                 wright++;
+                booleanCheck3 = true;
             }
         }
 
