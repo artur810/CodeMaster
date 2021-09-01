@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10sp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/checkComputers0"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:layout_marginStart="30dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/checkComputers1"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:layout_marginStart="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/checkComputers2"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:layout_marginStart="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/checkComputers3"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:layout_marginStart="40dp"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="15sp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check0"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check1"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:layout_marginStart="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check2"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:layout_marginStart="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/check3"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:layout_marginStart="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/test"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="114dp"
+            android:layout_height="50dp"
+            app:cornerRadius="50dp"
+            android:text="@string/confirm"
+            android:layout_marginStart="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

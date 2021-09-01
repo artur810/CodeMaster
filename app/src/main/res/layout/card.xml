@@ -45,7 +45,17 @@
             android:textSize="18sp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginStart="40sp"
+            android:layout_marginStart="4sp"
             android:text="בול 4\nפגיעה 0"/>
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="4sp"
+            android:text="0"/>
 
 </LinearLayout>

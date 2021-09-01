@@ -8,12 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:theme="@style/Theme.CodeMaster">
+        android:theme="@style/Theme.CodeMaster"
+        android:screenOrientation="portrait">
+        <activity android:name=".game"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.CodeMaster.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

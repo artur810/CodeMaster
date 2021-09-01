@@ -11,5 +11,12 @@
         android:text="Chats"
         android:textSize="30sp"
         />
-    
+
+    <Button
+        android:id="@+id/startGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="התחל משחק"
+        />
+
 </LinearLayout>

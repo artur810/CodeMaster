@@ -1,6 +1,6 @@
 package com.example.codemaster;
 
-import static com.example.codemaster.Frag2.colors;
+import static com.example.codemaster.game.colors;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,6 +1,6 @@
 package com.example.codemaster;
 
-import android.graphics.Color;
+import static com.example.codemaster.game.checkComputers;
 
 public class Card {
 
@@ -45,13 +45,70 @@ public class Card {
         this.color4 = color4;
     }
 
-    public String getStrikes(){
+    public String getStrikes() {
 
-        if (getColor1() == Color.RED && getColor2() == Color.BLUE && getColor3() == Color.GREEN && getColor4() == Color.YELLOW)
-            return "you win";
+        int wright = 0;
+        Boolean boolean1 = false, boolean2 = false, boolean3 = false, boolean4 = false;
 
-        return "סתם משפט";
+        if(getColor1() == checkComputers[0]) {
+            wright += 10;
+            boolean1 = true;
+        }
+        if(getColor2() == checkComputers[1]) {
+            wright += 10;
+            boolean2 = true;
+        }
+        if(getColor3() == checkComputers[2]) {
+            wright += 10;
+            boolean3 = true;
+        }
+        if(getColor4() == checkComputers[3]) {
+            wright += 10;
+            boolean4 = true;
+        }
+        if(!boolean1){
+            if(getColor2() == checkComputers[0] && !(getColor2() == checkComputers[1])) {
+                wright ++;
+            }else if(getColor3() == checkComputers[0] && !(getColor3() == checkComputers[2])) {
+                wright ++;
+            }else if(getColor4() == checkComputers[0] && !(getColor4() == checkComputers[3])) {
+                wright++;
+            }
+        }
+        if(!boolean2){
+            if(getColor1() == checkComputers[1] && !(getColor1() == checkComputers[0])) {
+                wright ++;
+            }else if(getColor3() == checkComputers[1] && !(getColor3() == checkComputers[2])) {
+                wright ++;
+            }else if(getColor4() == checkComputers[1] && !(getColor4() == checkComputers[3])) {
+                wright++;
+            }
+        }
+        if(!boolean3){
+            if(getColor1() == checkComputers[2] && !(getColor1() == checkComputers[0])) {
+                wright ++;
+            }else if(getColor2() == checkComputers[2] && !(getColor2() == checkComputers[1])) {
+                wright ++;
+            }else if(getColor4() == checkComputers[2] && !(getColor4() == checkComputers[3])) {
+                wright++;
+            }
+        }
+        if(!boolean4){
+            if(getColor1() == checkComputers[3] && !(getColor1() == checkComputers[0])) {
+                wright ++;
+            }else if(getColor2() == checkComputers[3] && !(getColor2() == checkComputers[1])) {
+                wright ++;
+            }else if(getColor3() == checkComputers[3] && !(getColor3() == checkComputers[2])) {
+                wright++;
+            }
+        }
+
+        if(wright == 40){
+            return "ניצחת";
+        }
+
+        return wright/10 + "בול\n" + wright%10 + "פגיעה";
+
     }
+
 }
-
-
