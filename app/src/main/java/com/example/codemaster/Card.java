@@ -79,6 +79,7 @@ public class Card {
                 wright ++;
                 booleanCheck3 = true;
             }else if(getColor4() == checkComputers[0] && !booleanCheck4) {
+                wright ++;
                 booleanCheck4 = true;
             }
         }
