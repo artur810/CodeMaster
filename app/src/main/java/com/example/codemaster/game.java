@@ -1,5 +1,6 @@
 package com.example.codemaster;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -18,7 +19,6 @@ public class game extends AppCompatActivity {
     public static MaterialButton buttonCheckComputers0, buttonCheckComputers1, buttonCheckComputers2, buttonCheckComputers3;
     public static int[] colors = new int[4];
     public static int[] checkComputers = new int[4];
-
     RecyclerView recyclerview;
     public static List<Card> cards;
     private RecyclerViewAdapter adapter;
@@ -26,6 +26,9 @@ public class game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
+
+        Intent intent = getIntent();
+        String numberLevel = intent.getStringExtra("numberLevel");
 
         cards = new ArrayList<>();
 
@@ -43,10 +46,7 @@ public class game extends AppCompatActivity {
         colors[2] = Color.BLUE;
         colors[3] = Color.YELLOW;
 
-        checkComputers[0] = colors[rand.nextInt(4)];
-        checkComputers[1] = colors[rand.nextInt(4)];
-        checkComputers[2] = colors[rand.nextInt(4)];
-        checkComputers[3] = colors[rand.nextInt(4)];
+        checkColors(numberLevel);
 
         buttonCheckComputers0 = findViewById(R.id.checkComputers0);
         buttonCheckComputers1 = findViewById(R.id.checkComputers1);
@@ -99,7 +99,7 @@ public class game extends AppCompatActivity {
 
             }else {
 
-                Toast.makeText(getBaseContext(), "you have to check colors", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), "you have to check colors", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -115,6 +115,58 @@ public class game extends AppCompatActivity {
         recyclerview.setLayoutManager(linearLayoutManager);
         adapter = new RecyclerViewAdapter(this, cards);
         recyclerview.setAdapter(adapter);
+
+    }
+
+    private void checkColors(String numberLevel){
+        int times1 = 10, times2 = 10, times3 = 10, times4 = 10;
+
+        if(numberLevel.equals("4")){
+            checkComputers[0] = colors[rand.nextInt(4)];
+            checkComputers[1] = colors[rand.nextInt(4)];
+            checkComputers[2] = colors[rand.nextInt(4)];
+            checkComputers[3] = colors[rand.nextInt(4)];
+        }else if(numberLevel.equals("3")){
+            times1 = rand.nextInt(4);
+            checkComputers[0] = colors[times1];
+            times2 = rand.nextInt(4);
+            checkComputers[1] = colors[times2];
+            times3 = rand.nextInt(4);
+            checkComputers[2] = colors[times3];
+            do{
+                times4 = rand.nextInt(4);
+            }while (times4 == times1 && times4 == times2 && times4 == times3);
+            checkComputers[3] = colors[times4];
+        }else if(numberLevel.equals("2")){
+            times1 = rand.nextInt(4);
+            checkComputers[0] = colors[times1];
+            times2 = rand.nextInt(4);
+            checkComputers[1] = colors[times2];
+            do{
+                times3 = rand.nextInt(4);
+            }while (times3 == times1 && times3 == times2);
+            checkComputers[2] = colors[times3];
+            do{
+                times4 = rand.nextInt(4);
+            }while (times4 == times1 && times4 == times2 || times4 == times2 && times4 == times3 || times4 == times1 && times4 == times3);
+            checkComputers[3] = colors[times4];
+        }else if(numberLevel.equals("1")){
+            times1 = rand.nextInt(4);
+            checkComputers[0] = colors[times1];
+            do{
+                times2 = rand.nextInt(4);
+            }while (times2 == times1);
+            checkComputers[1] = colors[times2];
+            do{
+                times3 = rand.nextInt(4);
+            }while (times3 == times1 || times3 == times2);
+            checkComputers[2] = colors[times3];
+            do{
+                times4 = rand.nextInt(4);
+            }while (times4 == times1 || times4 == times2 || times4 == times3);
+            checkComputers[3] = colors[times4];
+        }
+
     }
 
 }
