@@ -3,11 +3,11 @@ package com.example.codemaster;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,8 +15,8 @@ import java.util.Random;
 public class game extends AppCompatActivity {
 
     Random rand = new Random();
-    public static MaterialButton buttonCheck0, buttonCheck1, buttonCheck2, buttonCheck3, buttonTest;
-    public static MaterialButton buttonCheckComputers0, buttonCheckComputers1, buttonCheckComputers2, buttonCheckComputers3;
+    public static Button buttonCheck0, buttonCheck1, buttonCheck2, buttonCheck3, buttonTest;
+    public static Button buttonCheckComputers0, buttonCheckComputers1, buttonCheckComputers2, buttonCheckComputers3;
     public static int[] colors = new int[4];
     public static int[] checkComputers = new int[4];
     RecyclerView recyclerview;

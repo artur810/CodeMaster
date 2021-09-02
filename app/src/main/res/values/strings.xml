@@ -3,5 +3,6 @@
     <string name="tab_text_1">התחלת משחק</string>
     <string name="tab_text_2">מידע על משחק</string>
     <string name="tab_text_3">שמירת משחק אחרון</string>
-    <string name="confirm">confirm</string>
+    <string name="confirm">ניחוש</string>
+    <string name="_4_n_0">בול 4\nפגיעה 0</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/recyclerShow"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -11,22 +12,31 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="gone"
         />
 
-    <TextView
+    <com.haozhang.lib.SlantedTextView
         android:id="@+id/noData"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_gravity="center"
-        android:text="עדיין לא שוחק משחק" />
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:gravity="center"
+        app:slantedBackgroundColor="@color/teal_200"
+        app:slantedLength="55dp"
+        app:slantedMode="left"
+        app:slantedText="עדיין לא שוחק משחק"
+        app:slantedTextColor="@color/white"
+        app:slantedTextSize="16sp" />
 
     <TextView
+        android:id="@+id/lastGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="מהלך המשחק האחרון שלך"
+        android:text="המשחק האחרון שלך"
         android:textSize="30dp"
         android:textStyle="bold"
+        android:visibility="gone"
         />
+
 
 </LinearLayout>

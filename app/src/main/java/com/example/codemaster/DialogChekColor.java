@@ -15,9 +15,9 @@ public class DialogChekColor extends DialogFragment {
 
     Button red, green, blue, yellow;
 
-    private MaterialButton button;
+    private Button button;
 
-    public DialogChekColor(MaterialButton button) {
+    public DialogChekColor(Button button) {
         this.button = button;
     }
 

@@ -17,39 +17,23 @@ public class Card {
         return color1;
     }
 
-    public void setColor1(int color1) {
-        this.color1 = color1;
-    }
-
     public int getColor2() {
         return color2;
-    }
-
-    public void setColor2(int color2) {
-        this.color2 = color2;
     }
 
     public int getColor3() {
         return color3;
     }
 
-    public void setColor3(int color3) {
-        this.color3 = color3;
-    }
-
     public int getColor4() {
         return color4;
-    }
-
-    public void setColor4(int color4) {
-        this.color4 = color4;
     }
 
     public String getStrikes() {
 
         int wright = 0;
-        Boolean booleanComputer1 = false, booleanComputer2 = false, booleanComputer3 = false, booleanComputer4 = false;
-        Boolean booleanCheck1 = false, booleanCheck2 = false, booleanCheck3 = false, booleanCheck4 = false;
+        boolean booleanComputer1 = false, booleanComputer2 = false, booleanComputer3 = false, booleanComputer4 = false;
+        boolean booleanCheck1 = false, booleanCheck2 = false, booleanCheck3 = false, booleanCheck4 = false;
 
         if(getColor1() == checkComputers[0]) {
             wright += 10;
