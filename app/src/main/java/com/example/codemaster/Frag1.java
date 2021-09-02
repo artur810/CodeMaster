@@ -42,10 +42,11 @@ public class Frag1 extends Fragment {
                     Intent intent = new Intent(getContext(), game.class);
                     intent.putExtra("numberLevel", String.valueOf(adapter.getPosition(numberLevel[levelNumber.getSelectedItemPosition()]) + 1));
                     getContext().startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     ProgressBar.setVisibility(View.GONE);
                     buttonStartGame.setClickable(true);
                 }
-            }, 1000);
+            }, 500);
         });
 
         return view;
