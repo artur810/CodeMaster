@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Code Master</string>
-    <string name="tab_text_1">Chats</string>
-    <string name="tab_text_2">Status</string>
-    <string name="tab_text_3">Calls</string>
+    <string name="tab_text_1">התחלת משחק</string>
+    <string name="tab_text_2">מידע על משחק</string>
+    <string name="tab_text_3">שמירת משחק אחרון</string>
     <string name="confirm">confirm</string>
 </resources>

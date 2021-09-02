@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,18 +19,21 @@ public class Frag3 extends Fragment {
     RecyclerView recyclerViewShow;
     List<Card> cardsShow;
     private RecyclerViewAdapter adapter;
+    TextView noData;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag3_layuot, container, false);
 
         recyclerViewShow = view.findViewById(R.id.recyclerviewShow);
+        noData = view.findViewById(R.id.noData);
         cardsShow = new ArrayList<>();
 
         cardsShow = game.cards;
 
         if(cardsShow != null){
             recyclerViewAdapter(view);
+            noData.setVisibility(View.GONE);
         }
 
         return view;
