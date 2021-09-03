@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="תבחר רמת קושי" />
+            android:text="@string/LevelCheck" />
 
         <Spinner
             android:id="@+id/levelNumber"
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="התחל משחק" />
+        android:text="@string/startGame" />
 
     <LinearLayout
         android:layout_width="50dp"

@@ -1,11 +1,11 @@
 package com.example.codemaster;
 
 import android.os.Bundle;
+import com.example.codemaster.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.codemaster.ui.main.SectionsPagerAdapter;
-import com.example.codemaster.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 

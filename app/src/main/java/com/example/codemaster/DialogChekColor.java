@@ -13,7 +13,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class DialogChekColor extends DialogFragment {
 
-    Button red, green, blue, yellow;
+    Button red, green, blue, yellow, gray, pink;
 
     private Button button;
 
@@ -28,11 +28,15 @@ public class DialogChekColor extends DialogFragment {
         green = view.findViewById(R.id.green);
         blue = view.findViewById(R.id.blue);
         yellow = view.findViewById(R.id.yellow);
+        gray = view.findViewById(R.id.gray);
+        pink = view.findViewById(R.id.pink);
 
         red.setBackgroundColor(colors[0]);
         green.setBackgroundColor(colors[1]);
         blue.setBackgroundColor(colors[2]);
         yellow.setBackgroundColor(colors[3]);
+        gray.setBackgroundColor(colors[4]);
+        pink.setBackgroundColor(colors[5]);
 
         red.setOnClickListener(v -> {
 

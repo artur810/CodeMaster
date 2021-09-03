@@ -17,7 +17,7 @@ public class game extends AppCompatActivity {
     Random rand = new Random();
     public static Button buttonCheck0, buttonCheck1, buttonCheck2, buttonCheck3, buttonTest;
     public static Button buttonCheckComputers0, buttonCheckComputers1, buttonCheckComputers2, buttonCheckComputers3;
-    public static int[] colors = new int[4];
+    public static int[] colors = new int[6];
     public static int[] checkComputers = new int[4];
     RecyclerView recyclerview;
     public static List<Card> cards;
@@ -45,6 +45,8 @@ public class game extends AppCompatActivity {
         colors[1] = Color.GREEN;
         colors[2] = Color.BLUE;
         colors[3] = Color.YELLOW;
+        colors[4] = Color.GRAY;
+        colors[5] = Color.MAGENTA;
 
         checkColors(numberLevel);
 

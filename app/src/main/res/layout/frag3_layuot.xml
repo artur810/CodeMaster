@@ -17,8 +17,8 @@
 
     <com.haozhang.lib.SlantedTextView
         android:id="@+id/noData"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:gravity="center"
         app:slantedBackgroundColor="@color/teal_200"
         app:slantedLength="55dp"
