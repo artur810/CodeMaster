@@ -9,8 +9,6 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.google.android.material.button.MaterialButton;
-
 public class DialogChekColor extends DialogFragment {
 
     Button red, green, blue, yellow, gray, pink;
