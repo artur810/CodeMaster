@@ -29,6 +29,7 @@ public class game extends AppCompatActivity {
 
         Intent intent = getIntent();
         String numberLevel = intent.getStringExtra("numberLevel");
+        int numberColors = Integer.valueOf(intent.getStringExtra("numberColors"));
 
         cards = new ArrayList<>();
 
@@ -48,17 +49,17 @@ public class game extends AppCompatActivity {
         colors[4] = Color.GRAY;
         colors[5] = Color.MAGENTA;
 
-        checkColors(numberLevel);
+        checkColors(numberLevel, numberColors);
 
         buttonCheckComputers0 = findViewById(R.id.checkComputers0);
         buttonCheckComputers1 = findViewById(R.id.checkComputers1);
         buttonCheckComputers2 = findViewById(R.id.checkComputers2);
         buttonCheckComputers3 = findViewById(R.id.checkComputers3);
 
-        buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
-        buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
-        buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
-        buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
+//        buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
+//        buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
+//        buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
+//        buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
 
         buttonCheckComputers0.setClickable(false);
         buttonCheckComputers1.setClickable(false);
@@ -67,25 +68,25 @@ public class game extends AppCompatActivity {
 
         buttonCheck0.setOnClickListener(v -> {
 
-            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck0);
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck0, numberColors);
             dialogFragment.show(getSupportFragmentManager(), "dialog fragment");
 
         });
         buttonCheck1.setOnClickListener(v -> {
 
-            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck1);
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck1, numberColors);
             dialogFragment.show(getSupportFragmentManager(), "dialog fragment");
 
         });
         buttonCheck2.setOnClickListener(v -> {
 
-            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck2);
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck2, numberColors);
             dialogFragment.show(getSupportFragmentManager(), "dialog fragment");
 
         });
         buttonCheck3.setOnClickListener(v -> {
 
-            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck3);
+            DialogChekColor dialogFragment = new DialogChekColor(buttonCheck3, numberColors);
             dialogFragment.show(getSupportFragmentManager(), "dialog fragment");
 
         });
@@ -120,51 +121,51 @@ public class game extends AppCompatActivity {
 
     }
 
-    private void checkColors(String numberLevel){
+    private void checkColors(String numberLevel, int numberColors){
         int times1 = 10, times2 = 10, times3 = 10, times4 = 10;
 
         if(numberLevel.equals("4")){
-            checkComputers[0] = colors[rand.nextInt(4)];
-            checkComputers[1] = colors[rand.nextInt(4)];
-            checkComputers[2] = colors[rand.nextInt(4)];
-            checkComputers[3] = colors[rand.nextInt(4)];
+            checkComputers[0] = colors[rand.nextInt(numberColors)];
+            checkComputers[1] = colors[rand.nextInt(numberColors)];
+            checkComputers[2] = colors[rand.nextInt(numberColors)];
+            checkComputers[3] = colors[rand.nextInt(numberColors)];
         }else if(numberLevel.equals("3")){
-            times1 = rand.nextInt(4);
+            times1 = rand.nextInt(numberColors);
             checkComputers[0] = colors[times1];
-            times2 = rand.nextInt(4);
+            times2 = rand.nextInt(numberColors);
             checkComputers[1] = colors[times2];
-            times3 = rand.nextInt(4);
+            times3 = rand.nextInt(numberColors);
             checkComputers[2] = colors[times3];
             do{
-                times4 = rand.nextInt(4);
+                times4 = rand.nextInt(numberColors);
             }while (times4 == times1 && times4 == times2 && times4 == times3);
             checkComputers[3] = colors[times4];
         }else if(numberLevel.equals("2")){
-            times1 = rand.nextInt(4);
+            times1 = rand.nextInt(numberColors);
             checkComputers[0] = colors[times1];
-            times2 = rand.nextInt(4);
+            times2 = rand.nextInt(numberColors);
             checkComputers[1] = colors[times2];
             do{
-                times3 = rand.nextInt(4);
+                times3 = rand.nextInt(numberColors);
             }while (times3 == times1 && times3 == times2);
             checkComputers[2] = colors[times3];
             do{
-                times4 = rand.nextInt(4);
+                times4 = rand.nextInt(numberColors);
             }while (times4 == times1 && times4 == times2 || times4 == times2 && times4 == times3 || times4 == times1 && times4 == times3);
             checkComputers[3] = colors[times4];
         }else if(numberLevel.equals("1")){
-            times1 = rand.nextInt(4);
+            times1 = rand.nextInt(numberColors);
             checkComputers[0] = colors[times1];
             do{
-                times2 = rand.nextInt(4);
+                times2 = rand.nextInt(numberColors);
             }while (times2 == times1);
             checkComputers[1] = colors[times2];
             do{
-                times3 = rand.nextInt(4);
+                times3 = rand.nextInt(numberColors);
             }while (times3 == times1 || times3 == times2);
             checkComputers[2] = colors[times3];
             do{
-                times4 = rand.nextInt(4);
+                times4 = rand.nextInt(numberColors);
             }while (times4 == times1 || times4 == times2 || times4 == times3);
             checkComputers[3] = colors[times4];
         }

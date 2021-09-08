@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
@@ -14,9 +16,11 @@ public class DialogChekColor extends DialogFragment {
     Button red, green, blue, yellow, gray, pink;
 
     private Button button;
+    int numberColors;
 
-    public DialogChekColor(Button button) {
+    public DialogChekColor(Button button, int numberColors) {
         this.button = button;
+        this.numberColors = numberColors;
     }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,6 +39,15 @@ public class DialogChekColor extends DialogFragment {
         yellow.setBackgroundColor(colors[3]);
         gray.setBackgroundColor(colors[4]);
         pink.setBackgroundColor(colors[5]);
+
+        if(numberColors == 5){
+            gray.setVisibility(View.VISIBLE);
+        }
+
+        if(numberColors == 6){
+            gray.setVisibility(View.VISIBLE);
+            pink.setVisibility(View.VISIBLE);
+        }
 
         red.setOnClickListener(v -> {
 
@@ -61,6 +74,20 @@ public class DialogChekColor extends DialogFragment {
 
             button.setBackgroundColor(colors[3]);
             button.setTag(colors[3]);
+            this.dismiss();
+
+        });
+        gray.setOnClickListener(v -> {
+
+            button.setBackgroundColor(colors[4]);
+            button.setTag(colors[4]);
+            this.dismiss();
+
+        });
+        pink.setOnClickListener(v -> {
+
+            button.setBackgroundColor(colors[5]);
+            button.setTag(colors[5]);
             this.dismiss();
 
         });

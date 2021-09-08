@@ -1,5 +1,11 @@
 package com.example.codemaster;
 
+import static com.example.codemaster.game.buttonCheckComputers0;
+import static com.example.codemaster.game.buttonCheckComputers1;
+import static com.example.codemaster.game.buttonCheckComputers2;
+import static com.example.codemaster.game.buttonCheckComputers3;
+import static com.example.codemaster.game.checkComputers;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -42,6 +48,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.color3.setClickable(false);
 
         holder.result.setText(card.getStrikes());
+        if(card.getStrikes().equals("ניצחת")){
+            buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
+            buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
+            buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
+            buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
+        }
 
         holder.number.setText(String.valueOf(position));
     }
