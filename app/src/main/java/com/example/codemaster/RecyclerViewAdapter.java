@@ -1,17 +1,18 @@
 package com.example.codemaster;
 
+import static com.example.codemaster.DialogGameOver.*;
 import static com.example.codemaster.game.buttonCheckComputers0;
 import static com.example.codemaster.game.buttonCheckComputers1;
 import static com.example.codemaster.game.buttonCheckComputers2;
 import static com.example.codemaster.game.buttonCheckComputers3;
 import static com.example.codemaster.game.checkComputers;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import java.util.List;
@@ -21,15 +22,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private List<Card> list;
     private LayoutInflater mInflater;
     int n=0;
+    private Context context;
 
     RecyclerViewAdapter(Context context, List<Card> list) {
         this.mInflater = LayoutInflater.from(context);
         this.list = list;
+        this.context = context;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.card, parent, false);
+
+
         return new ViewHolder(view);
     }
 
@@ -53,9 +58,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
             buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
             buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
+
+            DialogGameOver dialogFragmentGameOver = new DialogGameOver();
+            dialogFragmentGameOver.show(((AppCompatActivity)context).getSupportFragmentManager(), "dialog fragment game_over");
         }
 
-        holder.number.setText(String.valueOf(position));
+        holder.number.setText(String.valueOf(position + 1));
     }
 
     @Override

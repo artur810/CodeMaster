@@ -56,10 +56,10 @@ public class game extends AppCompatActivity {
         buttonCheckComputers2 = findViewById(R.id.checkComputers2);
         buttonCheckComputers3 = findViewById(R.id.checkComputers3);
 
-//        buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
-//        buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
-//        buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
-//        buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
+        buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
+        buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
+        buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
+        buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
 
         buttonCheckComputers0.setClickable(false);
         buttonCheckComputers1.setClickable(false);
