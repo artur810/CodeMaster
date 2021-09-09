@@ -5,7 +5,6 @@ import static com.example.codemaster.game.checkComputers;
 public class Card {
 
     int color1, color2, color3, color4;
-
     public Card(int color1, int color2, int color3, int color4) {
         this.color1 = color1;
         this.color2 = color2;

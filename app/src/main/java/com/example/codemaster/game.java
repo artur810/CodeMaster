@@ -22,10 +22,18 @@ public class game extends AppCompatActivity {
     RecyclerView recyclerview;
     public static List<Card> cards;
     private RecyclerViewAdapter adapter;
+    int position = 0;
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplication(), "אי אפשר לצאת מהמשחק", Toast.LENGTH_SHORT).show();
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
+
+        System.out.println(getClass().getName());
 
         Intent intent = getIntent();
         String numberLevel = intent.getStringExtra("numberLevel");
@@ -55,11 +63,6 @@ public class game extends AppCompatActivity {
         buttonCheckComputers1 = findViewById(R.id.checkComputers1);
         buttonCheckComputers2 = findViewById(R.id.checkComputers2);
         buttonCheckComputers3 = findViewById(R.id.checkComputers3);
-
-        buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
-        buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
-        buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
-        buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
 
         buttonCheckComputers0.setClickable(false);
         buttonCheckComputers1.setClickable(false);
@@ -97,8 +100,19 @@ public class game extends AppCompatActivity {
 
                 Card card = new Card((int)buttonCheck0.getTag(), (int)buttonCheck1.getTag(), (int)buttonCheck2.getTag(), (int)buttonCheck3.getTag());
 
+                position++;
                 cards.add(card);
                 recyclerViewAdapter();
+
+                if(card.getStrikes().equals("ניצחת")){
+                    buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
+                    buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
+                    buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
+                    buttonCheckComputers3.setBackgroundColor(checkComputers[3]);
+
+                    DialogGameOver dialogFragmentGameOver = new DialogGameOver(position, numberLevel, String.valueOf(numberColors));
+                    dialogFragmentGameOver.show(getSupportFragmentManager(), "dialog fragment game_over");
+                }
 
             }else {
 

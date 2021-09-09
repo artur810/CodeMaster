@@ -8,16 +8,37 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="אין מידע כרגע"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:text="כללי המשחק"
+        android:textSize="60dp"
+        android:textColor="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@+id/SCROLLER_ID"
         tools:ignore="MissingConstraints" />
 
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/resultSum"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="@string/rules"
+            android:textColor="@color/teal_200"
+            android:textSize="25sp" />
+
+    </ScrollView>
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_marginBottom="16dp"

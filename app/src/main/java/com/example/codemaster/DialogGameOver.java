@@ -8,12 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 public class DialogGameOver extends DialogFragment {
 
-    Button button;
+    Button returnMain, gameAgain;
+    TextView textView;
+    int numInfo;
+    String numberLevel, numberColors;
+
+    public DialogGameOver(int numInfo, String numberLevel, String numberColors) {
+        this.numInfo = numInfo;
+        this.numberLevel = numberLevel;
+        this.numberColors = numberColors;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -29,17 +39,15 @@ public class DialogGameOver extends DialogFragment {
 
         getDialog().setCanceledOnTouchOutside(false);
 
-        button = view.findViewById(R.id.returnMain);
+        returnMain = view.findViewById(R.id.returnMain);
+        gameAgain = view.findViewById(R.id.gameAgain);
+        textView = view.findViewById(R.id.textInfo);
 
-        CountDownTimer cuentaRegresiva = new CountDownTimer(10000, 100){
+        textView.setText("הצלחת למצוא את הרצף הנכון תוך " + numInfo + " תורות");
+
+        CountDownTimer cuentaRegresiva = new CountDownTimer(5000, 100){
             @Override
             public void onTick(long millisUntilFinished) {
-                long segundos = millisUntilFinished/1000+1;
-                long minutos;
-                if (segundos>= 60) {
-                    minutos = segundos / 60;
-                    segundos = segundos - minutos * 60;
-                }
             }
 
             @Override
@@ -49,10 +57,22 @@ public class DialogGameOver extends DialogFragment {
 
         }.start();
 
-        button.setOnClickListener(v -> {
+        returnMain.setOnClickListener(v -> {
 
             cuentaRegresiva.cancel();
             openMainActivity();
+
+        });
+
+        gameAgain.setOnClickListener(v -> {
+
+            cuentaRegresiva.cancel();
+
+            Intent intent = new Intent(getActivity(), game.class);
+            intent.putExtra("numberLevel", numberLevel);
+            intent.putExtra("numberColors", numberColors);
+            getActivity().startActivity(intent);
+            getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         });
 

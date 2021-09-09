@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,6 +22,19 @@ public class Frag1 extends Fragment {
     private Spinner levelNumber, colors;
     private final String[] numberLevel = {"עד 1 פעמים מכל צבע", "עד 2 פעמים מכל צבע", "עד 3 פעמים מכל צבע", "עד 4 פעמים מכל צבע"};
     private final String[] colorNumber = {"עד 4 צבעים", "עד 5 צבעים", "עד 6 צבעים"};
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Toast.makeText(getContext(), "אי אפשר לחזור אחורה" +
+                        "", Toast.LENGTH_SHORT).show();
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+    }
 
     @Nullable
     @Override
