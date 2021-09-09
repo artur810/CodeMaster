@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Code Master</string>
     <string name="tab_text_1">התחלת משחק</string>
-    <string name="tab_text_2">מידע על משחק</string>
-    <string name="tab_text_3">שמירת משחק אחרון</string>
+    <string name="tab_text_2">שמירת משחק אחרון</string>
+    <string name="tab_text_3">מידע על משחק</string>
     <string name="confirm">ניחוש</string>
     <string name="_4_n_0">בול 4\nפגיעה 0</string>
     <string name="LevelCheck">תבחר רמת קושי</string>

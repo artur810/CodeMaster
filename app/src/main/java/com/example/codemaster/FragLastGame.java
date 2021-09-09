@@ -14,7 +14,7 @@ import com.haozhang.lib.SlantedTextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Frag3 extends Fragment {
+public class FragLastGame extends Fragment {
 
     RecyclerView recyclerViewShow;
     List<Card> cardsShow;

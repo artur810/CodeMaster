@@ -6,9 +6,9 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import com.example.codemaster.Frag1;
-import com.example.codemaster.Frag2;
-import com.example.codemaster.Frag3;
+import com.example.codemaster.FragStartGame;
+import com.example.codemaster.FragInformation;
+import com.example.codemaster.FragLastGame;
 import com.example.codemaster.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -28,13 +28,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                fragment = new Frag1();
+                fragment = new FragStartGame();
                 break;
             case 1:
-                fragment = new Frag2();
+                fragment = new FragLastGame();
                 break;
             case 2:
-                fragment = new Frag3();
+                fragment = new FragInformation();
                 break;
         }
         return fragment;

@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Frag1 extends Fragment {
+public class FragStartGame extends Fragment {
     Button buttonStartGame;
     ProgressBar ProgressBar;
     private Spinner levelNumber, colors;
