@@ -1,10 +1,11 @@
 package com.example.codemaster;
 
+import static com.example.codemaster.game.cards;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,25 +21,36 @@ public class FragLastGame extends Fragment {
     List<Card> cardsShow;
     private RecyclerViewAdapter adapter;
     SlantedTextView noData;
-    TextView lastGame;
+    Button buttonClear;
+    androidx.constraintlayout.widget.ConstraintLayout ConstraintLayout;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag3_layuot, container, false);
+        View view = inflater.inflate(R.layout.frag_last_name_layuot, container, false);
 
         recyclerViewShow = view.findViewById(R.id.recyclerviewShow);
         cardsShow = new ArrayList<>();
         noData= view.findViewById(R.id.noData);
-        lastGame = view.findViewById(R.id.lastGame);
+        buttonClear = view.findViewById(R.id.buttonClear);
+        ConstraintLayout = view.findViewById(R.id.ConstraintLayout);
 
-        cardsShow = game.cards;
+        cardsShow = PrefConfig.readListFromPref(getContext());
 
         if(cardsShow != null && !cardsShow.isEmpty()){
             recyclerViewAdapter(view);
             noData.setVisibility(View.GONE);
-            lastGame.setVisibility(View.VISIBLE);
+            ConstraintLayout.setVisibility(View.VISIBLE);
             recyclerViewShow.setVisibility(View.VISIBLE);
         }
+
+        buttonClear.setOnClickListener(v -> {
+            cards = new ArrayList<>();
+            PrefConfig.writeListInPref(getContext(), cards);
+            noData.setVisibility(View.VISIBLE);
+            ConstraintLayout.setVisibility(View.GONE);
+            recyclerViewShow.setVisibility(View.GONE);
+        });
 
         return view;
     }

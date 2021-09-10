@@ -1,7 +1,10 @@
 package com.example.codemaster;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.codemaster.game.MY_PREFS_NAME;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +17,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<Card> list;
     private LayoutInflater mInflater;
+    private Context mContext;
 
     RecyclerViewAdapter(Context context, List<Card> list) {
         this.mInflater = LayoutInflater.from(context);
         this.list = list;
+        this.mContext = context;
     }
 
     @Override
@@ -42,7 +47,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.color2.setClickable(false);
         holder.color3.setClickable(false);
 
-        holder.result.setText(card.getStrikes());
+        SharedPreferences prefs = mContext.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String buttonCheckComputers0 = prefs.getString("buttonCheckComputers0", null);
+        String buttonCheckComputers1 = prefs.getString("buttonCheckComputers1", null);
+        String buttonCheckComputers2 = prefs.getString("buttonCheckComputers2", null);
+        String buttonCheckComputers3 = prefs.getString("buttonCheckComputers3", null);
+
+        holder.result.setText(card.getStrikes(Integer.valueOf(buttonCheckComputers0), Integer.valueOf(buttonCheckComputers1), Integer.valueOf(buttonCheckComputers2), Integer.valueOf(buttonCheckComputers3)));
 
         holder.number.setText(String.valueOf(position + 1));
     }

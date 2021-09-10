@@ -18,7 +18,7 @@ public class FragInformation extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.frag2_layuot, container, false);
+        View view =  inflater.inflate(R.layout.frag_information_layuot, container, false);
 
         instagramAccount = view.findViewById(R.id.instagramAccount);
 

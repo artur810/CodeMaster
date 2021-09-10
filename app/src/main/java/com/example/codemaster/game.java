@@ -1,6 +1,7 @@
 package com.example.codemaster;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
@@ -23,23 +24,25 @@ public class game extends AppCompatActivity {
     public static List<Card> cards;
     private RecyclerViewAdapter adapter;
     int position = 0;
+    public static final String MY_PREFS_NAME = "list_key";
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplication(), "אי אפשר לצאת מהמשחק", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
 
-        System.out.println(getClass().getName());
-
         Intent intent = getIntent();
         String numberLevel = intent.getStringExtra("numberLevel");
         int numberColors = Integer.valueOf(intent.getStringExtra("numberColors"));
 
         cards = new ArrayList<>();
+        PrefConfig.writeListInPref(getApplicationContext(), cards);
 
         recyclerview = findViewById(R.id.recyclerview);
         recyclerViewAdapter();
@@ -63,6 +66,14 @@ public class game extends AppCompatActivity {
         buttonCheckComputers1 = findViewById(R.id.checkComputers1);
         buttonCheckComputers2 = findViewById(R.id.checkComputers2);
         buttonCheckComputers3 = findViewById(R.id.checkComputers3);
+
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("buttonCheckComputers0", String.valueOf(checkComputers[0]));
+        editor.putString("buttonCheckComputers1", String.valueOf(checkComputers[1]));
+        editor.putString("buttonCheckComputers2", String.valueOf(checkComputers[2]));
+        editor.putString("buttonCheckComputers3", String.valueOf(checkComputers[3]));
+        editor.apply();
 
         buttonCheckComputers0.setClickable(false);
         buttonCheckComputers1.setClickable(false);
@@ -104,7 +115,9 @@ public class game extends AppCompatActivity {
                 cards.add(card);
                 recyclerViewAdapter();
 
-                if(card.getStrikes().equals("ניצחת")){
+                PrefConfig.writeListInPref(getApplicationContext(), cards);
+
+                if(card.getStrikes(checkComputers[0], checkComputers[1], checkComputers[2], checkComputers[3]).equals("ניצחת")){
                     buttonCheckComputers0.setBackgroundColor(checkComputers[0]);
                     buttonCheckComputers1.setBackgroundColor(checkComputers[1]);
                     buttonCheckComputers2.setBackgroundColor(checkComputers[2]);
