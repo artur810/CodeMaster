@@ -1,6 +1,9 @@
 package com.example.codemaster;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.codemaster.game.MY_PREFS_NAME;
 import static com.example.codemaster.game.cards;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,8 +24,8 @@ public class FragLastGame extends Fragment {
     List<Card> cardsShow;
     private RecyclerViewAdapter adapter;
     SlantedTextView noData;
-    Button buttonClear;
-    androidx.constraintlayout.widget.ConstraintLayout ConstraintLayout;
+    Button buttonClear, seeCheckComputers0, seeCheckComputers1, seeCheckComputers2, seeCheckComputers3;
+    androidx.constraintlayout.widget.ConstraintLayout ConstraintLayout, ConstraintLayoutCheckComputer;
 
 
     @Override
@@ -33,7 +36,28 @@ public class FragLastGame extends Fragment {
         cardsShow = new ArrayList<>();
         noData= view.findViewById(R.id.noData);
         buttonClear = view.findViewById(R.id.buttonClear);
-        ConstraintLayout = view.findViewById(R.id.ConstraintLayout);
+        seeCheckComputers0 = view.findViewById(R.id.seeCheckComputers0);
+        seeCheckComputers1 = view.findViewById(R.id.seeCheckComputers1);
+        seeCheckComputers2 = view.findViewById(R.id.seeCheckComputers2);
+        seeCheckComputers3 = view.findViewById(R.id.seeCheckComputers3);
+        ConstraintLayout = view.findViewById(R.id.ConstraintLayoutInfo);
+        ConstraintLayoutCheckComputer = view.findViewById(R.id.ConstraintLayoutCheckComputer);
+
+        seeCheckComputers0.setClickable(false);
+        seeCheckComputers1.setClickable(false);
+        seeCheckComputers2.setClickable(false);
+        seeCheckComputers3.setClickable(false);
+
+        SharedPreferences prefs = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String buttonCheckComputers0 = prefs.getString("buttonCheckComputers0", null);
+        String buttonCheckComputers1 = prefs.getString("buttonCheckComputers1", null);
+        String buttonCheckComputers2 = prefs.getString("buttonCheckComputers2", null);
+        String buttonCheckComputers3 = prefs.getString("buttonCheckComputers3", null);
+
+        seeCheckComputers0.setBackgroundColor(Integer.valueOf(buttonCheckComputers0));
+        seeCheckComputers1.setBackgroundColor(Integer.valueOf(buttonCheckComputers1));
+        seeCheckComputers2.setBackgroundColor(Integer.valueOf(buttonCheckComputers2));
+        seeCheckComputers3.setBackgroundColor(Integer.valueOf(buttonCheckComputers3));
 
         cardsShow = PrefConfig.readListFromPref(getContext());
 
@@ -41,6 +65,7 @@ public class FragLastGame extends Fragment {
             recyclerViewAdapter(view);
             noData.setVisibility(View.GONE);
             ConstraintLayout.setVisibility(View.VISIBLE);
+            ConstraintLayoutCheckComputer.setVisibility(View.VISIBLE);
             recyclerViewShow.setVisibility(View.VISIBLE);
         }
 
@@ -49,6 +74,7 @@ public class FragLastGame extends Fragment {
             PrefConfig.writeListInPref(getContext(), cards);
             noData.setVisibility(View.VISIBLE);
             ConstraintLayout.setVisibility(View.GONE);
+            ConstraintLayoutCheckComputer.setVisibility(View.GONE);
             recyclerViewShow.setVisibility(View.GONE);
         });
 

@@ -149,6 +149,7 @@ public class game extends AppCompatActivity {
     }
 
     private void checkColors(String numberLevel, int numberColors){
+
         int times1 = 10, times2 = 10, times3 = 10, times4 = 10;
 
         if(numberLevel.equals("4")){
