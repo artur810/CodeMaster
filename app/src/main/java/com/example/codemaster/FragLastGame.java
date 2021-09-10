@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.example.codemaster.game.MY_PREFS_NAME;
 import static com.example.codemaster.game.cards;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,10 +55,16 @@ public class FragLastGame extends Fragment {
         String buttonCheckComputers2 = prefs.getString("buttonCheckComputers2", null);
         String buttonCheckComputers3 = prefs.getString("buttonCheckComputers3", null);
 
-        seeCheckComputers0.setBackgroundColor(Integer.valueOf(buttonCheckComputers0));
-        seeCheckComputers1.setBackgroundColor(Integer.valueOf(buttonCheckComputers1));
-        seeCheckComputers2.setBackgroundColor(Integer.valueOf(buttonCheckComputers2));
-        seeCheckComputers3.setBackgroundColor(Integer.valueOf(buttonCheckComputers3));
+        try{
+            seeCheckComputers0.setBackgroundColor(Integer.valueOf(buttonCheckComputers0));
+            seeCheckComputers1.setBackgroundColor(Integer.valueOf(buttonCheckComputers1));
+            seeCheckComputers2.setBackgroundColor(Integer.valueOf(buttonCheckComputers2));
+            seeCheckComputers3.setBackgroundColor(Integer.valueOf(buttonCheckComputers3));
+        }catch(NumberFormatException ex){
+            seeCheckComputers0.setBackgroundColor(Color.rgb(100, 100, 100));
+            seeCheckComputers1.setBackgroundColor(Color.rgb(100, 100, 100));
+            seeCheckComputers2.setBackgroundColor(Color.rgb(100, 100, 100));
+            seeCheckComputers3.setBackgroundColor(Color.rgb(100, 100, 100));        }
 
         cardsShow = PrefConfig.readListFromPref(getContext());
 
