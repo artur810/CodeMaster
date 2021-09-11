@@ -12,13 +12,10 @@ public class startApp extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_app);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run(){
-                Intent intent = new Intent(startApp.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(startApp.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }, 1000);
 
     }

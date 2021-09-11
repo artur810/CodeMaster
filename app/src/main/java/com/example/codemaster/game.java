@@ -31,6 +31,7 @@ public class game extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        finish();
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,12 +199,6 @@ public class game extends AppCompatActivity {
             checkComputers[3] = colors[times4];
         }
 
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }

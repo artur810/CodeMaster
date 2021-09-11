@@ -61,10 +61,7 @@ public class FragLastGame extends Fragment {
             seeCheckComputers2.setBackgroundColor(Integer.valueOf(buttonCheckComputers2));
             seeCheckComputers3.setBackgroundColor(Integer.valueOf(buttonCheckComputers3));
         }catch(NumberFormatException ex){
-            seeCheckComputers0.setBackgroundColor(Color.rgb(100, 100, 100));
-            seeCheckComputers1.setBackgroundColor(Color.rgb(100, 100, 100));
-            seeCheckComputers2.setBackgroundColor(Color.rgb(100, 100, 100));
-            seeCheckComputers3.setBackgroundColor(Color.rgb(100, 100, 100));        }
+        }
 
         cardsShow = PrefConfig.readListFromPref(getContext());
 

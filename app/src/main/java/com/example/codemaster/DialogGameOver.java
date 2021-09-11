@@ -73,6 +73,7 @@ public class DialogGameOver extends DialogFragment {
             intent.putExtra("numberColors", numberColors);
             getActivity().startActivity(intent);
             getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            getActivity().finish();
 
         });
 

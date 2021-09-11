@@ -29,8 +29,7 @@ public class FragStartGame extends Fragment {
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                Toast.makeText(getContext(), "אי אפשר לחזור אחורה" +
-                        "", Toast.LENGTH_SHORT).show();
+                getActivity().finish();
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
@@ -67,6 +66,7 @@ public class FragStartGame extends Fragment {
                     getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     ProgressBar.setVisibility(View.GONE);
                     buttonStartGame.setClickable(true);
+                    getActivity().finish();
                 }
             }, 500);
         });
